@@ -1,0 +1,87 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  color: black; /* Default text color */
+}
+
+/* Header Section */
+.header {
+  background-color: orange;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Navigation Bar */
+.navbar-custom {
+  background-color: #ff6f00; /* Different shade of orange for the navbar */
+}
+
+.navbar-custom .nav-link {
+  color: white;
+}
+
+.navbar-custom .navbar-toggler-icon {
+  background-image: red;
+}
+
+.navbar-custom .dropdown-menu {
+  background-color: #ff6f00; /* Same shade as navbar */
+}
+
+.navbar-custom .dropdown-item {
+  color: white;
+}
+
+/* Filter Form Section */
+form fieldset {
+  border-color: #020202; /* Ash color */
+}
+
+/* Buttons */
+.btn-custom {
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px;
+  margin: 5px;
+}
+
+.btn-custom:hover {
+  background-color: #e68a00; /* Slightly darker orange on hover */
+}
+
+/* Button Group */
+.btn-group-custom .btn {
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  margin-right: 10px;
+  padding: 10px 20px;
+}
+
+.btn-group-custom .btn:hover {
+  background-color: #e68a00; /* Slightly darker orange on hover */
+}
+
+/* Table */
+.table thead th {
+  background-color: orange;
+  color: white;
+}
+
+.table th, .table td {
+  color: black;
+}
+
+/* Pagination */
+.pagination .page-link {
+  color: black;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.pagination .page-link:hover {
+  color: orange;
+}
