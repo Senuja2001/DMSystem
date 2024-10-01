@@ -1,7 +1,9 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const mongoose = require("mongoose");
-const Item = require("../models/InItem");
+const mongoose = require('mongoose');
+const Item = require('../models/InItem');
+const csvStringify = require('csv-stringify');
+
 
 router.post("/add", async (req, res) => {
     console.log("Received data:", req.body);
@@ -38,15 +40,27 @@ router.post("/add", async (req, res) => {
     }
 });
 
-
 router.route('/').get(async (req, res) => {
+    const { warehouseCode, productCode } = req.query;
+    
+    let query = {};
+    
+    if (warehouseCode) {
+        query.WarehouseCode = { $regex: warehouseCode, $options: 'i' };  // Case-insensitive partial match
+    }
+    if (productCode) {
+        query.ProductCode = { $regex: productCode, $options: 'i' };
+    }
+    
     try {
-        const items = await Item.find();
+        const items = await Item.find(query);
         res.status(200).json(items);
     } catch (error) {
         res.status(500).json({ message: "Error fetching items", error: error.message });
     }
 });
+
+
 
 // Read (Get Item by ID)
 router.route("/:id").get(async (req, res) => {
@@ -71,7 +85,7 @@ router.route("/update/:id").put(async (req, res) => {
             ProductDescription,
             QuantityonHand,
             QuantityAvailable,
-            QueantityAllocated,
+            QuantityAllocated,
             Cost,
             Price
         } = req.body;
@@ -83,9 +97,9 @@ router.route("/update/:id").put(async (req, res) => {
             ProductDescription,
             QuantityonHand: Number(QuantityonHand),
             QuantityAvailable: Number(QuantityAvailable),
-            QueantityAllocated: Number(QueantityAllocated),
-            Cost: mongoose.Types.Decimal128.fromString(Cost),
-            Price: mongoose.Types.Decimal128.fromString(Price)
+            QuantityAllocated: Number(QuantityAllocated),
+            Cost: Number(Cost),
+            Price: Number(Price)
         }, { new: true });
 
         if (!item) {
@@ -112,4 +126,33 @@ router.route("/delete/:id").delete(async (req, res) => {
 });
 
 
+
+
+router.get('/report', async (req, res) => {
+    try {
+        console.log("Fetching inventory items...");
+        const items = await Item.find(); // Fetch inventory items
+        
+        // Create CSV data with the exact field names from the schema
+        const csvData = items.map(item => ({
+            WarehouseCode: item.WarehouseCode,
+            WarehouseDescription: item.WarehouseDescription,
+            ProductCode: item.ProductCode,
+            ProductDescription: item.ProductDescription,
+            QuantityonHand: item.QuantityonHand, // Match this exactly as per schema
+            QuantityAvailable: item.QuantityAvailable,
+            QuantityAllocated: item.QuantityAllocated,
+            Cost: item.Cost,
+            Price: item.Price
+        }));
+
+        // Your logic to generate CSV and respond to the client goes here...
+
+    } catch (error) {
+        console.error("Error in report generation:", error);
+        res.status(500).json({ message: 'Error generating report', error: error.message });
+    }
+});
+
 module.exports = router;
+

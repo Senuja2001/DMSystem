@@ -1,12 +1,11 @@
-/* General Styles */
 body {
   font-family: Arial, sans-serif;
-  color: black; /* Default text color */
+  background-color: #f4f4f4;
+  color: black;
 }
 
-/* Header Section */
 .header {
-  background-color: orange;
+  background-color: #092143;
   color: white;
   text-align: center;
   padding: 20px;
@@ -14,7 +13,7 @@ body {
 
 /* Navigation Bar */
 .navbar-custom {
-  background-color: #ff6f00; /* Different shade of orange for the navbar */
+  background-color: #115288; /* Different shade of orange for the navbar */
 }
 
 .navbar-custom .nav-link {
@@ -26,62 +25,162 @@ body {
 }
 
 .navbar-custom .dropdown-menu {
-  background-color: #ff6f00; /* Same shade as navbar */
+  background-color: #115288; /* Same shade as navbar */
 }
 
 .navbar-custom .dropdown-item {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
-/* Filter Form Section */
-form fieldset {
-  border-color: #020202; /* Ash color */
+.dropdown-item:hover {
+  background-color: #092143; /* Change this to your desired hover background color */
+  color: #ffffff; /* Keep text color on hover */
 }
 
-/* Buttons */
-.btn-custom {
-  background-color: orange;
+.container {
+  max-width: 1600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  
+  width: 100%; /* Ensure it takes full width up to the max */
+}
+
+
+.filter h2 {
+  color: #444;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #666;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  background-color: #092143;
   color: white;
+  padding: 10px 15px;
   border: none;
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 20px;
-  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 15px;
+  width: 100px
 }
 
-.btn-custom:hover {
-  background-color: #e68a00; /* Slightly darker orange on hover */
+button[type="submit"]:hover {
+  background-color: #115288;
 }
 
-/* Button Group */
-.btn-group-custom .btn {
-  background-color: orange;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #092143;
   color: white;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-cell {
+  text-align: center;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.actions button {
+  background-color: #f60;
+  color: white;
+  padding: 10px 15px;
   border: none;
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 4px;
+  cursor: pointer;
   margin-right: 10px;
-  padding: 10px 20px;
 }
 
-.btn-group-custom .btn:hover {
-  background-color: #e68a00; /* Slightly darker orange on hover */
-}
-
-/* Table */
-.table thead th {
-  background-color: orange;
-  color: white;
-}
-
-.table th, .table td {
-  color: black;
+.actions button:hover {
+  background-color: #e55d00;
 }
 
 /* Pagination */
 .pagination .page-link {
   color: black;
   border-radius: 5px; /* Rounded corners */
+  margin-top: 20px;
 }
-
+.pagination_p {
+  margin-top: 20px;
+}
 .pagination .page-link:hover {
   color: orange;
+}
+
+.pagination button {
+  background-color: #f60;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;    
+}
+
+.pagination button:hover {
+  background-color: #e55d00;
+}
+
+.custom-btn {
+  border-radius: 4px; /* Slightly rounded corners */
+}
+
+.custom-btn-primary {
+  background-color: #09ff00;
+  color: rgb(0, 0, 0);
+  width: 100px;
+}
+
+.custom-btn-danger {
+  background-color: #dc3545;
+  color: white;
+  width: 100px;
+}
+
+.repGen {
+  background-color: #03f824;
+  color: rgb(0, 0, 0);
+  width: 200px;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  display: block; /* or inline-block */
+  margin-left: 1560px; /* Pushes the button to the right */
+  margin-right: 0; /* No margin on the right */
 }

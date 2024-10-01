@@ -4,37 +4,37 @@ const Schema = mongoose.Schema;
 const InventorySchema = new Schema({
     WarehouseCode: {
         type: String,
-        required: true
+        required : true
     },
     WarehouseDescription: {
         type: String
     },
     ProductCode: {
         type: String,
-        required: true
+        required : true
     },
     ProductDescription: {
         type: String
     },
     QuantityonHand: {
         type: Number,
-        required: true
+        
     },
     QuantityAvailable: {
         type: Number,
-        required: true
+        required : true
     },
     QuantityAllocated: {
         type: Number,
-        required: true
+        
     },
     Cost: {
         type: Number,
-        required: true
+        required : true
     },
     Price: {
         type: Number,
-        required: true
+        required : true
     }
 });
 
